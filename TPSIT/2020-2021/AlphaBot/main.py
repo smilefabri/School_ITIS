@@ -1,19 +1,19 @@
 from lib.ServerBot import ServerBot
 
 
+
 def main():
-    Server_bot = ServerBot("192.168.1.126",7500)
+    Server_bot = ServerBot("192.168.56.1",7500)
     
     
     while True:
         Server_bot.Listen()
         (clientsock, (ip,port))= Server_bot.Accept()
-        Server_bot.Add_Client(ip,port, clientsock)
+        Server_bot.Add_Client(ip,port, clientsock,"TPSIT/2020-2021/AlphaBot/dataset.db")
+        #print(Server_bot.get_Client())
         
-        print(Server_bot.get_Client())
         
-        
- #   print("debug")
+ # print("debug")
 
 
 

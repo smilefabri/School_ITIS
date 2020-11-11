@@ -3,7 +3,7 @@ from lib.ServerBot import ServerBot
 
 
 def main():
-    Server_bot = ServerBot("192.168.56.1",7500)
+    Server_bot = ServerBot("192.168.1.126",7500)
     
     
     while True:

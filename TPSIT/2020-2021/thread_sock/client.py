@@ -7,7 +7,7 @@ Es: Create a tcp multithread server
 import socket
 import threading
 
-server_ip = "192.168.56.1"
+server_ip = "192.168.1.126"
 server_port = 7500
 
 def client():

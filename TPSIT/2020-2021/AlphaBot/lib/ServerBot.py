@@ -86,7 +86,14 @@ class Client_Thread(threading.Thread):
                     with sqlite3.connect(self.DB_name) as connsql:
                         c = connsql.cursor()
                         #print(f'Query: SELECT id FROM luoghi WHERE nome="{data[0]}"')
-                        for row in c.execute(f"SELECT percorso FROM Luoghi WHERE Start_point = {dest[0]} AND end_point= {dest[1]} "):
+                        for row in c.execute("""
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                                """):
                             self.percorso = row[0]
                             
                             

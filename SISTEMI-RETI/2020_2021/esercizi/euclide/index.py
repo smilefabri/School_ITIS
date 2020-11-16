@@ -1,5 +1,6 @@
 def MCD(a,b):
     while b != 0 :
+        print(a)
         r = a % b
         a = b
         b = r 

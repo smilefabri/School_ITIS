@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+
+*{
+  margin: 0;
+  padding: 0;
+ }
+ 
+ html{
+     width: 100vw;
+     height: 100vh;
+ }
+ 
+ body{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
+  background-image:url('/static/image.jpg');
+  width: 100%;
+  height: 100%;
+  font-family: Roboto, Helvetica;
+  letter-spacing: 0.02em;
+   font-weight: 400;
+  -webkit-font-smoothing: antialiased; 
+ }
+ 
+ .blurred-box{
+   position: relative;
+   width: 250px;
+   height: 350px;
+   top: calc(50% - 200px);
+   left: calc(50% - 265px);
+   background: inherit;
+   border-radius: 2px;
+   overflow: hidden;
+   float: left;
+ }
+ 
+ .blurred-box:after{
+  content: '';
+  width: 300px;
+  height: 350px;
+  background: inherit; 
+  position: absolute;
+  left: -2px;
+  margin-left: 15px;
+  right: 0;
+  top: -25px;  
+  
+  bottom: 0;
+  box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+  filter: blur(7px);
+ }
+ 
+
+ .user-login-box{
+   position: relative;
+   margin-top: 50px;
+   text-align: center;
+   z-index: 1;
+ }
+ .user-login-box > *{
+   display: inline-block;
+   width: 200px;
+ }
+ 
+ .user-icon{
+   width: 100px;
+   height: 100px;
+   position: relative;
+   border-radius: 100%;
+   background-size: contain;
+   background-image: url(https://pbs.twimg.com/profile_images/725321660484583424/ArQ4fM3k.jpg);
+ }
+ 
+ .user-name{
+   margin-top: 15px;
+   margin-bottom: 15px;
+   color: white;
+ }
+ 
+ input.user-password{
+
+   width: 120px;
+   height: 18px;
+   opacity: 0.4;
+   border-radius: 2px;
+   padding: 5px 15px;
+   border: 0;
+   margin-top: 1px;
+   margin-bottom: 8px;
+ }
+ .form__field {
+  width: 120px;
+}
+input[type='submit'] {
+  border: none;
+  background: #1abc9c;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  width: 150px;
+  color: white;
+  margin-left: 25px;
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+
+}
+input:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 6px 6px 0 rgba(0,0,0,0.2);
+  
+}
+
+
+
+  </style>
+
+</head>
+<body>
+
+
+<div class="blurred-box">
+    <div class="user-login-box">
+      
+      <form style="margin-top: 6%;" autocomplete="off" action="/login" method="post">
+        {% if error %}
+        <div class="user-name" style="color: rgb(187, 63, 63);"> {{ error }}</div>
+        {% else %}
+        <div  class="user-name">Login:</div>
+        {% endif %}
+        <input class="user-password" name="username" placeholder="username" type="text"/>
+        <input class="user-password" name="password"  placeholder="password" type="password"/>
+        <div class="form__field">
+          <input type="submit" value="Sign In">
+        </div>
+      </form>
+    </div>
+  </div>
+  
+<div class="blurred-box">
+  <div class="user-login-box" >
+      <form autocomplete="off" style="padding-top : 6%;"action="/regis" method="post">
+        {% if erroregi %}
+        <div class="user-name" style="color: rgb(187, 63, 63);"> {{ erroregi }}</div>
+        
+        {% elif regis %}
+        <div class="user-name" style="color: #1abc9c;"> {{ regis }}</div>
+        {% else %}
+        <div class="user-name">Registrazione:</div>
+        {% endif %}
+
+        <input class="user-password" name="username" placeholder="username" type="text"/>
+        <input class="user-password" name="email"  placeholder="email" type="text"/>
+        <input class="user-password" name="password"  placeholder="password" type="password"/>
+        <div class="form__field">
+        
+        <input type="submit" value="Register">
+        </div>
+      </form>
+  </div>
+  </div>
+
+
+</body>
+</html>
